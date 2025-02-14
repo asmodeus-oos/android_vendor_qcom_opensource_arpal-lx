@@ -83,6 +83,7 @@ typedef enum {
 #define AUDIO_PARAMETER_KEY_DUAL_MONO "dual_mono"
 #define AUDIO_PARAMETER_KEY_SIGNAL_HANDLER "signal_handler"
 #define AUDIO_PARAMETER_KEY_DUMMY_DEV_ENABLE "dummy_dev_enable"
+#define AUDIO_PARAMETER_KEY_RECORD_USE_AP_LVACFS "record_use_ap_lvacfs"
 #define MAX_PCM_NAME_SIZE 50
 #define MAX_STREAM_INSTANCES (sizeof(uint64_t) << 3)
 #define MIN_USECASE_PRIORITY 0xFFFFFFFF
@@ -364,6 +365,7 @@ class SoundTriggerEngine;
 class SndCardMonitor;
 class StreamUltraSound;
 class ContextManager;
+class Lvacfs;
 class StreamSensorPCMData;
 class StreamContextProxy;
 
@@ -575,6 +577,7 @@ public:
     static bool isContextManagerEnabled;
     static bool isDualMonoEnabled;
     static bool isUHQAEnabled;
+    static bool isLvacfsEnabled;
     static bool isSignalHandlerEnabled;
     static bool isDummyDevEnabled;
     /* Variable to store which speaker side is being used for call audio.
@@ -826,6 +829,7 @@ public:
     static int setLpiLoggingParams(struct str_parms *parms, char *value, int len);
     static int setUpdDedicatedBeEnableParam(struct str_parms *parms,char *value, int len);
     static int setDualMonoEnableParam(struct str_parms *parms,char *value, int len);
+    static int setLvacfsEnableParam(struct str_parms *parms,char *value, int len);
     static int setSignalHandlerEnableParam(struct str_parms *parms,char *value, int len);
     static void setDummyDevEnableParam(struct str_parms *parms,char *value, int len);
     static bool isLpiLoggingEnabled();
